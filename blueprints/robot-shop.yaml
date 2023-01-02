@@ -2,19 +2,8 @@ spec_version: 2
 description: Quali + Raftt Demo (robot-shop)
 
 inputs:
-  nodeport:
-    type: string
-    default: false
-  openshift:
-    type: string
-    default: false
-  ocCreateRoute:
-    type: string
-    default: false
   namespace:
     type: string
-  host_name:
-    type: execution-host
 
 outputs:
   URL:
@@ -31,12 +20,12 @@ grains:
         store: robot-shop
         path: K8s/namespace
       host:
-        name: '{{ .inputs.host_name }}'
+        name: raftt-eks
       inputs:
-      - namespace_name: '{{ .inputs.namespace }}'
+        - namespace_name: '{{ .inputs.namespace }}'
       env-vars: []
       commands:
-      - dep up K8s/namespace
+        - dep up K8s/namespace
   helm:
     kind: helm
     depends-on: namespace
@@ -46,7 +35,7 @@ grains:
         path: K8s/helm
       namespace: '{{ .inputs.namespace }}'
       host:
-        name: '{{ .inputs.host_name }}'
+        name: raftt-eks
       scripts:
         post-helm-install:
           source:
@@ -56,10 +45,7 @@ grains:
           outputs:
             - frontend
       inputs:
-      - nodeport: '{{ .inputs.nodeport }}'
-      - openshift: '{{ .inputs.openshift }}'
-      - ocCreateRoute: '{{ .inputs.ocCreateRoute }}'
-      - namespace: '{{ .inputs.namespace }}'
+        - namespace: '{{ .inputs.namespace }}'
       env-vars: []
       commands:
-      - dep up K8s/helm
+        - dep up K8s/helm
