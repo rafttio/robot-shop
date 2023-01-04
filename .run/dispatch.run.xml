@@ -1,0 +1,13 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="dispatch" type="GoApplicationRunConfiguration" factoryName="Go Application">
+    <module name="robot-shop" />
+    <working_directory value="$PROJECT_DIR$/dispatch" />
+    <envs>
+      <env name="RAFTT_WORKLOAD" value="dispatch" />
+    </envs>
+    <kind value="FILE" />
+    <directory value="$PROJECT_DIR$" />
+    <filePath value="$PROJECT_DIR$/dispatch/main.go" />
+    <method v="2" />
+  </configuration>
+</component>

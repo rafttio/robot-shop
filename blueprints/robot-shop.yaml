@@ -47,6 +47,7 @@ grains:
             - frontend
       inputs:
         - namespace: '{{ .inputs.namespace }}'
+        - subdomain: 'web-{{ .inputs.namespace }}'
       env-vars: []
       commands:
         - dep up K8s/helm
