@@ -11,6 +11,7 @@ outputs:
     kind: link
   Develop with Raftt:
     value: 'raftt connect {{.inputs.namespace}}'
+    kind: link
 
 grains:
   namespace:
