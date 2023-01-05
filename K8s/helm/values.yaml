@@ -16,8 +16,6 @@ eum:
 psp:
   enabled: false
 
-subdomain: web
-
 # "special" Openshift. Set to true when deploying to any openshift flavour
 openshift: false
 
