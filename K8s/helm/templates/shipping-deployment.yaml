@@ -25,9 +25,6 @@ spec:
         - containerPort: 8080
         # it's Java it needs lots of memory
         resources:
-          limits:
-            cpu: 200m
-            memory: 1000Mi
           requests:
             cpu: 100m
             memory: 500Mi

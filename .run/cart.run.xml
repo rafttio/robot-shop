@@ -1,0 +1,14 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="cart" type="js.build_tools.npm">
+    <package-json value="$PROJECT_DIR$/cart/package.json" />
+    <command value="run" />
+    <scripts>
+      <script value="start" />
+    </scripts>
+    <node-interpreter value="project" />
+    <envs>
+      <env name="RAFTT_WORKLOAD" value="cart" />
+    </envs>
+    <method v="2" />
+  </configuration>
+</component>
