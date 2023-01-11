@@ -24,8 +24,6 @@ grains:
         name: aks-playground
       inputs:
         - namespace_name: '{{ .inputs.namespace }}'
-        - redis.storageClassName: 'default'
-        - web.ingressDomain: 'azure-demo.raftt.io'
       env-vars: []
       commands:
         - dep up K8s/namespace
@@ -49,6 +47,8 @@ grains:
             - frontend
       inputs:
         - namespace: '{{ .inputs.namespace }}'
+        - redis.storageClassName: 'default'
+        - web.ingressDomain: 'azure-demo.raftt.io'
       env-vars: []
       commands:
         - dep up K8s/helm
