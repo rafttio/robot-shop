@@ -5,7 +5,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - host: web-{{ .Release.Namespace }}.devx-demo.raftt.io
+    - host: web-{{ .Release.Namespace }}.{{ .Values.web.ingressDomain }}
       http:
         paths:
           - backend:

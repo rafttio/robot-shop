@@ -1,0 +1,54 @@
+spec_version: 2
+description: [Azure] Quali + Raftt Demo (robot-shop)
+
+inputs:
+  namespace:
+    type: string
+
+outputs:
+  URL:
+    value: 'https://{{.grains.helm.scripts.post-helm-install.outputs.frontend}}'
+    kind: link
+  Develop with Raftt:
+    value: 'raftt connect {{.inputs.namespace}}'
+    kind: link
+
+grains:
+  namespace:
+    kind: helm
+    spec:
+      source:
+        store: robot-shop
+        path: K8s/namespace
+      host:
+        name: aks-playground
+      inputs:
+        - namespace_name: '{{ .inputs.namespace }}'
+        - redis.storageClassName: 'default'
+        - web.ingressDomain: 'azure-demo.raftt.io'
+      env-vars: []
+      commands:
+        - dep up K8s/namespace
+  helm:
+    kind: helm
+    depends-on: namespace
+    spec:
+      source:
+        store: robot-shop
+        path: K8s/helm
+      namespace: '{{ .inputs.namespace }}'
+      host:
+        name: aks-playground
+      scripts:
+        post-helm-install:
+          source:
+            store: robot-shop
+            path:  scripts/get-robot-web-address.sh
+          arguments: '{{ .inputs.namespace }}'
+          outputs:
+            - frontend
+      inputs:
+        - namespace: '{{ .inputs.namespace }}'
+      env-vars: []
+      commands:
+        - dep up K8s/helm
