@@ -50,7 +50,6 @@ spec:
       spec:
         accessModes: [ "ReadWriteOnce" ]
         {{ if not .Values.openshift }}
-        storageClassName: {{ .Values.redis.storageClassName }}
         volumeMode: Filesystem
         {{ end }}
         resources:

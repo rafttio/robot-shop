@@ -50,13 +50,11 @@ rabbitmq: {}
 
 ratings: {}
 
-redis:
-  # Storage class to use with redis statefulset.
-  storageClassName: standard
+redis: {}
 
 shipping: {}
 
 user: {}
 
 web:
-  ingressDomain: devx-demo.raftt.io
+  ingressDomain: demo.raftt.io
