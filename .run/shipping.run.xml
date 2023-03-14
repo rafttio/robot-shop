@@ -1,0 +1,12 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="shipping" type="JarApplication">
+    <option name="JAR_PATH" value="/opt/shipping/shipping.jar" />
+    <option name="VM_PARAMETERS" value="-Xmn256m -Xmx768m" />
+    <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+    <option name="ALTERNATIVE_JRE_PATH" />
+    <envs>
+      <env name="RAFTT_WORKLOAD" value="shipping" />
+    </envs>
+    <method v="2" />
+  </configuration>
+</component>
